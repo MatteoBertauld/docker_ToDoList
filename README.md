@@ -23,13 +23,17 @@ Avant de commencer, assurez-vous d'avoir Docker et Docker Compose installés sur
 
 Installation
 
-1. Construire les images Docker
+1. Ajouter un .env pour la BD
+
+Copié le fichier .env.exemples et supprimer l'extension .exemple
+
+2. Construire les images Docker
 
 Utilisez la commande suivante pour construire les images Docker nécessaires au projet :
 
 docker compose build
 
-2. Démarrer l'application
+3. Démarrer l'application
 
 Lancez les conteneurs Docker en mode détaché avec la commande suivante :
 
