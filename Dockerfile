@@ -37,8 +37,12 @@ RUN a2enmod rewrite
 
 # Create user
 # Pour éviter des pb on créé un utilisateur dédié qui aura le même id que celui que l'on utilise sur notre hôte
-#RUN groupadd --force -g $WWW_USER webapp
-#RUN useradd -ms /bin/bash --no-user-group -g $WWW_USER -u $WWW_USER webapp
+RUN groupadd --force -g $WWW_USER webapp
+RUN useradd -ms /bin/bash --no-user-group -g $WWW_USER -u $WWW_USER webapp
+
+
+# Composer
+RUN sudo curl -L "https://github.com/docker/compose/releases/download/$(curl -s https://api.github.com/repos/docker/compose/releases/latest | jq -r .tag_name)/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
 
 # Clean cache
