@@ -37,8 +37,8 @@ RUN a2enmod rewrite
 
 # Create user
 # Pour éviter des pb on créé un utilisateur dédié qui aura le même id que celui que l'on utilise sur notre hôte
-RUN groupadd --force -g $WWW_USER webapp
-RUN useradd -ms /bin/bash --no-user-group -g $WWW_USER -u $WWW_USER webapp
+#RUN groupadd --force -g $WWW_USER webapp
+#RUN useradd -ms /bin/bash --no-user-group -g $WWW_USER -u $WWW_USER webapp
 
 
 # Clean cache

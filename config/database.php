@@ -57,7 +57,7 @@ return [
             'port' => env('DB_PORT', '5432'),
             'database' => env('DB_DATABASE', 'docker_bd'),
             'username' => env('DB_USERNAME', 'user_pg'),
-            'password' => env('DB_PASSWORD', 'user_pg'),
+            'password' => env('DB_PASSWORD', 'mdp_pg'),
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,

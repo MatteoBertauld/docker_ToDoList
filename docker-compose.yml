@@ -28,14 +28,11 @@ services:
     environment:
       POSTGRES_DB: docker_bd
       POSTGRES_USER: user_pg
-      POSTGRES_PASSWORD: user_pg
+      POSTGRES_PASSWORD: mdp_pg
     networks:
       - app-network
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+    ports:
+      - 5432:5432
 
 networks:
   app-network:
