@@ -63,3 +63,46 @@ Configuration
 
 Aucune configuration supplémentaire n'est nécessaire pour faire fonctionner le site Laravel avec Docker. Une fois les conteneurs en cours d'exécution, l'application devrait être prête à l'emploi sans étapes supplémentaires.
 
+
+--
+
+Erreur de configuration
+
+
+- Si la commande de docker ne fonctionne pas.
+    Vérifier que l'outil est bien installé sur votre machine, si ce n'est pas le cas installer le, ou utiliser docker Desktop.
+
+
+- Si vous optenez l'erreur suivante sur le site
+"Fatal error: Uncaught Error: Failed opening required '/app/public/../vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /app/public/index.php:34 Stack trace: #0 {main} thrown in /app/public/index.php on line 34"
+    
+    Le projet docker s'est mal générer refaite la commande 
+    
+    docker compose up -d
+
+
+
+- SI vous optenez l'erreur suivante
+SQLSTATE[42P01]: Undefined table: 7 ERROR: relation "liste" does not exist LINE 1: select * from "liste" ^
+
+    Le script de génération des données s'est mal instancié. Dans un terminal faite la commande suivante
+    
+    docker ps
+    
+    vous devriez optenir la ligne suivante dans la console :
+    "355de552ed27   docker_todolist-master-app   "docker-php-entrypoi…"   2 minutes ago   Up 2 minutes   0.0.0.0:8080->80/tcp     docker_todolist-master-app-1"
+    
+    Faite ensuite :
+    
+    docker exec -t 355de552ed27 php artisan migrate:fresh
+    
+    Cela va regénérer la base.
+    Si après cela vous avez besoin des données par default faites la commande suivante
+    
+    docker exec -t 355de552ed27 php artisan db:seed
+
+
+- Si le site ne fonctionne toujours pas
+    Vérifier que vous avez bien renommer le fichier .env.exemple en .env
+
+
