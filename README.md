@@ -78,7 +78,7 @@ Erreur de configuration
     
     Le projet docker s'est mal générer refaite la commande 
     
-    docker compose up -d
+    docker compose up
 
 
 
@@ -104,5 +104,8 @@ SQLSTATE[42P01]: Undefined table: 7 ERROR: relation "liste" does not exist LINE 
 
 - Si le site ne fonctionne toujours pas
     Vérifier que vous avez bien renommer le fichier .env.exemple en .env
+
+    Refaite les deux commandes build et up, vérifier les logs sur docker.
+
 
 
